@@ -9,7 +9,7 @@ document.addEventListener('submit', (e)=>{
     const location = search.value
     locationID.textContent = "Loading..."
                 forecastID.textContent = ''
-    fetch('http://localhost:3000/weather?address='+location).then(result=>{
+    fetch('/weather?address='+location).then(result=>{
         locationID.textContent = "Loading"
         result.json().then(data=>{
             if(data.error)
