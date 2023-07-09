@@ -18,10 +18,17 @@ const geocode = async(city,callback)=>{
 const mapFinalResponse = ((response, city)=>{
     let latitude = response.body.features[0].center[1]
     let longitude = response.body.features[0].center[0]
-    let location = city
+    let location = ''
     if(response.body.features[0].context)
     {
-        location = response.body.features[0].context[0].text
+        const contextArray = response.body.features[0].context
+        for(const data of contextArray)
+        {
+            location = location + " " + data.text
+        }
+    }
+    else{
+        location = city
     }
     const finalResponse = {
         "latitude": latitude,
