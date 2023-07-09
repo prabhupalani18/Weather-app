@@ -19,13 +19,9 @@ const mapFinalResponse = ((response, city)=>{
     let latitude = response.body.features[0].center[1]
     let longitude = response.body.features[0].center[0]
     let location = ''
-    if(response.body.features[0].context)
+    if(response.body.features[0])
     {
-        const contextArray = response.body.features[0].context
-        for(const data of contextArray)
-        {
-            location = location + " " + data.text
-        }
+        location = response.body.features[0].place_name
     }
     else{
         location = city
