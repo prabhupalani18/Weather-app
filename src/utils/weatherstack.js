@@ -1,7 +1,9 @@
 const request = require("postman-request")
+const secrets = require("./secrets")
 
-const weatherstack = (latitude,longitude,callback)=>{
-    const weatherstackURL = "http://api.weatherstack.com/current?access_key=e4a8b53e210bb5002ce265d62a737536&query="+latitude+","+longitude
+const weatherstack = async(latitude,longitude,callback)=>{
+    const secretData = await secrets.secretsData()
+    const weatherstackURL = "http://api.weatherstack.com/current?access_key="+ secretData.weatherStack +"="+latitude+","+longitude
 
     request({
         url: weatherstackURL,
