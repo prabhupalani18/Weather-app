@@ -1,9 +1,8 @@
 const request = require("postman-request")
-const secrets = require("./secrets")
 
 const geocode = async(city,callback)=>{
     const secretData = await secrets.secretsData()
-    const geocodeURL = "https://api.mapbox.com/geocoding/v5/mapbox.places/"+city+".json?access_token="+ secretData.mapbox +"&limit=1"
+    const geocodeURL = "https://api.mapbox.com/geocoding/v5/mapbox.places/"+city+".json?access_token="+ process.env.MAPBOX +"&limit=1"
     request({url: geocodeURL, json: true},(err,response)=>{
         if(err){
             callback("Can't reach mapbox api", undefined)
