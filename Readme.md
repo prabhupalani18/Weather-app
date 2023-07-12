@@ -55,6 +55,23 @@ npm start
 
 The app should now be running locally on `http://localhost:3000`.
 
+## Deployment
+
+To deploy the Weather App on the Render website, follow these steps:
+
+1. Sign up for a Render account at [https://render.com/](https://render.com/).
+
+2. Create a new web service and connect your GitHub repository.
+
+3. Configure the environment variables under the "Environment" settings:
+
+   - `WEATHERSTACK_API_KEY`: Set it to your Weatherstack API key.
+   - `MAPBOX_API_KEY`: Set it to your Mapbox API key.
+
+4. Deploy the app and wait for the deployment to complete.
+
+5. Access your deployed app at the provided Render URL.
+
 ## Usage
 
 1. Open your web browser and go to `http://localhost:3000`.
